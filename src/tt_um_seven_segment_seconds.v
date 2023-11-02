@@ -21,7 +21,6 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     assign uo_out[0] = buff_out;
     assign ui_in[0] = buff_in;
 
-    (* keep_hierarchy *)
     sky130_fd_sc_hd__buf_1 delay0(.X(buff_out),  .A(buff_in));
 
 endmodule
