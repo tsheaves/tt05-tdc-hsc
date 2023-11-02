@@ -28,6 +28,6 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-    sky130_fd_sc_hd__buf_1 delay0(.X(ui_out[0]),  .A(uo_out[0]));
+    sky130_fd_sc_hd__buf_1 delay0(.X(ui_out[0]),  .A(ui_in[0]));
 
 endmodule
