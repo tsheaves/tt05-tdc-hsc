@@ -26,7 +26,7 @@ set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.05
 set ::env(RUN_LINTER) 0
 set ::env(LINTER_INCLUDE_PDK_MODELS) 0
 
-set ::env(PNR_SDC_FILE) [glob $::env(DESIGN_DIR)/pnr.sdc]
+# set ::env(PNR_SDC_FILE) [glob $::env(DESIGN_DIR)/pnr.sdc]
 set ::env(MACRO_PLACEMENT_CFG) [glob $::env(DESIGN_DIR)/macro.cfg]
 set ::env(SET_DONT_TOUCH) delay0
 
