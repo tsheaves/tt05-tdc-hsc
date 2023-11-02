@@ -17,11 +17,10 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     
     (* keep *) wire buff_in;
     (* keep *) wire buff_out;
-    (* keep *) wire buff_out_d;
-    (* keep *) wire buff_out_q;
     (* keep *) wire buff_in_q;
+    (* keep *) wire buff_out_d;
 
-    assign uo_out[0] = buff_out_q;
+    assign uo_out[0] = buff_out;
     assign buff_in = ui_in[0];
 
     sky130_fd_sc_hd__dfbbp_1 df0(
