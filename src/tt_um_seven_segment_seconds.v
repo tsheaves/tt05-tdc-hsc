@@ -1,6 +1,5 @@
 `default_nettype none
 
-(* keep_hierarchy *)
 module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     input  wire [7:0] ui_in,    // Dedicated inputs - connected to the input switches
     output wire [7:0] uo_out,   // Dedicated outputs - connected to the 7 segment display
@@ -13,36 +12,23 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
 );
     assign uo_out [7:1]  = 7'b0;
     assign uio_out [7:0] = 8'b0;
-    assign uio_oe [7:0]  = 8'hFF;
-    
-    (* keep *) wire buff_in;
-    (* keep *) wire buff_out;
-    (* keep *) wire buff_in_q;
-    (* keep *) wire buff_out_d;
+    assign uio_oe [7:0]  = 8'b0;
 
-    assign uo_out[0] = buff_out;
-    assign buff_in = ui_in[0];
+    genvar i;
 
-    sky130_fd_sc_hd__dfbbp_1 df0(
-        .Q(buff_in_q),
-        .Q_N(),
-        .D(buff_in),
-        .CLK(clk),
-        .SET_B(1'b1),
-        .RESET_B(rst_n)
-    );
+    localparam n = 4;
+    wire [n:0] conn;
     
-    sky130_fd_sc_hd__buf_1 buff0(
-        .X(buff_out_d),  
-        .A(buff_in_q));
+    generate
+        for (i = 0; i<n; i+=1) begin : gen_cells
+            sky130_fd_sc_hd__buf_1 buff0(
+                .X(conn[i]),  
+                .A(conn[i+1]
+            );
+        end
+    endgenerate
     
-    sky130_fd_sc_hd__dfbbp_1 df1(
-        .Q(buff_out),
-        .Q_N(),
-        .D(buff_out_d),
-        .CLK(clk),
-        .SET_B(1'b1),
-        .RESET_B(rst_n)
-    );
-
+    assign conn[0] = ui_in[0];
+    assign uo_out[n] = conn[n];
+                
 endmodule
