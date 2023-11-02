@@ -1,22 +1,5 @@
 `default_nettype none
 
-(* blackbox *)
-module sky130_fd_sc_hd__buf_1 (
-    X,
-    A
-);
-
-    output X;
-    input  A;
-
-    // Voltage supply signals
-    supply1 VPWR;
-    supply0 VGND;
-    supply1 VPB ;
-    supply0 VNB ;
-
-endmodule
-
 module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     input  wire [7:0] ui_in,    // Dedicated inputs - connected to the input switches
     output wire [7:0] uo_out,   // Dedicated outputs - connected to the 7 segment display
@@ -30,6 +13,7 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     assign uo_out [7:1]  = 7'b0;
     assign uio_out [7:0] = 8'b0;
     assign uio_oe [7:0]  = 8'hFF;
+    
     sky130_fd_sc_hd__buf_1 delay0(.X(uo_out[0]),  .A(ui_in[0]));
 
 endmodule
