@@ -29,6 +29,7 @@ set ::env(LINTER_INCLUDE_PDK_MODELS) 1
 # set ::env(PNR_SDC_FILE) [glob $::env(DESIGN_DIR)/pnr.sdc]
 set ::env(MACRO_PLACEMENT_CFG) [glob $::env(DESIGN_DIR)/macro.cfg]
 set ::env(VERILOG_FILES_BLACKBOX) [glob $::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox.v]
+# set ::env(PNR_SDC_FILE)  [glob $::env(DESIGN_DIR)/macro.cfg]
 # set ::env(SYNTH_ELABORATE_ONLY) 1
 
 # Configuration docs: https://openlane.readthedocs.io/en/latest/reference/configuration.html
