@@ -34,7 +34,7 @@ set ::env(RSZ_DONT_TOUCH) {gen_cells\3\buff0 gen_cells\2\buff0 gen_cells\1\buff0
 set ::env(RSZ_DONT_TOUCH) {gen_cells\3\dfbbp0 gen_cells\2\dfbbp0 gen_cells\1\dfbbp0 gen_cells\0\dfbbp0}
 # set ::env(PNR_SDC_FILE)  [glob $::env(DESIGN_DIR)/macro.cfg]
 # set ::env(SYNTH_ELABORATE_ONLY) 1
-
+set ::env(BASE_SDC_FILE) $::env(DESIGN_DIR)/base.sdc
 set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 0
 set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
 set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
