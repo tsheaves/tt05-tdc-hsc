@@ -29,6 +29,6 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     endgenerate
     
     assign conn[0] = ui_in[0];
-    assign uo_out[n] = conn[n];
+    assign uo_out[1] = conn[3];
                 
 endmodule
