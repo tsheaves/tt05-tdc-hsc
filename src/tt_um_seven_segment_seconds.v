@@ -19,8 +19,8 @@ module tt_um_seven_segment_seconds(
 
     wire launch_clk, capture_clk;
     
-    assign launch_clk  = u_in[1];
-    assign capture_clk = u_in[2];
+    assign launch_clk  = ui_in[1];
+    assign capture_clk = ui_in[2];
     
     always@(posedge launch_clk) begin
         conn[0] <= ui_in[0];
