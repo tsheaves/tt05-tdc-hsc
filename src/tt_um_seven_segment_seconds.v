@@ -10,25 +10,33 @@ module tt_um_seven_segment_seconds(
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-    assign uo_out [7:1]  = 7'b0;
+    localparam n = 4;
+    assign uo_out  [7:n]  = {8-n{1'b0}};
     assign uio_out [7:0] = 8'b0;
-    assign uio_oe [7:0]  = 8'b0;
+    assign uio_oe  [7:0]  = 8'b0;
 
     genvar i;
 
-    localparam n = 4;
     wire [n:0] conn;
-    
+    wire [n-1:0] out_r;
     generate
         for (i = 0; i<n; i+=1) begin : gen_cells
             sky130_fd_sc_hd__buf_1 buff0(
                 .X(conn[i+1]),  
                 .A(conn[i])
             );
+            sky130_fd_sc_hd__dfbbp_1 dfbbp0(
+                .Q(out_r),
+                .Q_N(),
+                .D(conn[i+1]),
+                .CLK(clk),
+                .SET_B(1'b1),
+                .RESET_B(rst_n)
+            );
         end
     endgenerate
     
     assign conn[0] = ui_in[0];
-    assign uo_out[0] = conn[n];
+    assign uo_out[n-1:0] = out_r;
                 
 endmodule
