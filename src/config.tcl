@@ -26,9 +26,12 @@ set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.05
 set ::env(RUN_LINTER) 1
 set ::env(LINTER_INCLUDE_PDK_MODELS) 1
 
-# set ::env(PNR_SDC_FILE) [glob $::env(DESIGN_DIR)/pnr.sdc]
+set ::env(PNR_SDC_FILE) [glob $::env(DESIGN_DIR)/pnr.sdc]
+set ::env(SIGNOFF_SDC_FILE) [glob $::env(DESIGN_DIR)/signoff.sdc]
 set ::env(MACRO_PLACEMENT_CFG) [glob $::env(DESIGN_DIR)/macro.cfg]
 set ::env(VERILOG_FILES_BLACKBOX) [glob $::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox.v]
+set ::env(RSZ_DONT_TOUCH) {gen_cells\3\buff0 gen_cells\2\buff0 gen_cells\1\buff0 gen_cells\0\buff0}
+set ::env(RSZ_DONT_TOUCH) {gen_cells\3\dfbbp0 gen_cells\2\dfbbp0 gen_cells\1\dfbbp0 gen_cells\0\dfbbp0}
 # set ::env(PNR_SDC_FILE)  [glob $::env(DESIGN_DIR)/macro.cfg]
 # set ::env(SYNTH_ELABORATE_ONLY) 1
 
