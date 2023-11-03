@@ -11,8 +11,8 @@ module tt_um_seven_segment_seconds(
     input  wire       rst_n     // reset_n - low to reset
 );
     localparam n = 4;
-    assign uo_out  [7:n]  = {8-n{1'b0}};
-    assign uio_out [7:0] = 8'b0;
+    assign uo_out  [7:n]  = 4'b0;
+    assign uio_out [7:0]  = 8'b0;
     assign uio_oe  [7:0]  = 8'b0;
 
     genvar i;
@@ -26,7 +26,7 @@ module tt_um_seven_segment_seconds(
                 .A(conn[i])
             );
             sky130_fd_sc_hd__dfbbp_1 dfbbp0(
-                .Q(out_r),
+                .Q(out_r[i]),
                 .Q_N(),
                 .D(conn[i+1]),
                 .CLK(clk),
