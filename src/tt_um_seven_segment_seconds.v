@@ -29,6 +29,6 @@ module tt_um_seven_segment_seconds(
     endgenerate
     
     assign conn[0] = ui_in[0];
-    assign uo_out[1] = conn[n];
+    assign uo_out[0] = conn[n];
                 
 endmodule
