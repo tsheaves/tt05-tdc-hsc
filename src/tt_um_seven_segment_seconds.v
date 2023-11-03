@@ -16,18 +16,20 @@ module tt_um_seven_segment_seconds(
     assign uio_oe  [7:0]  = 8'b0;
 
     genvar i;
-
+    wire [n:0] conn;
+    wire [n-1:0] out_r;
     wire launch_clk, capture_clk;
-    
+    reg pulse_in;
+
     assign launch_clk  = ui_in[1];
     assign capture_clk = ui_in[2];
     
     always@(posedge launch_clk) begin
-        conn[0] <= ui_in[0];
+        pulse_in <= ui_in[0];
     end
-    
-    wire [n:0] conn;
-    wire [n-1:0] out_r;
+
+    assign conn[0] = pulse_in;
+
     generate
         for (i = 0; i<n; i+=1) begin : gen_cells
             sky130_fd_sc_hd__buf_1 buff0(
