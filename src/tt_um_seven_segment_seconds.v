@@ -22,8 +22,8 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     generate
         for (i = 0; i<n; i+=1) begin : gen_cells
             sky130_fd_sc_hd__buf_1 buff0(
-                .X(conn[i]),  
-                .A(conn[i+1])
+                .X(conn[i+1]),  
+                .A(conn[i])
             );
         end
     endgenerate
