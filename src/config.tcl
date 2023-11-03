@@ -35,6 +35,10 @@ set ::env(RSZ_DONT_TOUCH) {gen_cells\3\dfbbp0 gen_cells\2\dfbbp0 gen_cells\1\dfb
 # set ::env(PNR_SDC_FILE)  [glob $::env(DESIGN_DIR)/macro.cfg]
 # set ::env(SYNTH_ELABORATE_ONLY) 1
 
+set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 0
+set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
+set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
+
 # Configuration docs: https://openlane.readthedocs.io/en/latest/reference/configuration.html
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
