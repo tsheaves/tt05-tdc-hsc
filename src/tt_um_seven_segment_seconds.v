@@ -17,6 +17,13 @@ module tt_um_seven_segment_seconds(
 
     genvar i;
 
+    assign launch_clk  = u_in[1];
+    assign capture_clk = u_in[2];
+    
+    always@(posedge launch_clk) begin
+        conn[0] <= ui_in[0];
+    end
+    
     wire [n:0] conn;
     wire [n-1:0] out_r;
     generate
@@ -29,14 +36,13 @@ module tt_um_seven_segment_seconds(
                 .Q(out_r[i]),
                 .Q_N(),
                 .D(conn[i+1]),
-                .CLK(clk),
+                .CLK(capture_clk),
                 .SET_B(1'b1),
                 .RESET_B(rst_n)
             );
         end
     endgenerate
     
-    assign conn[0] = ui_in[0];
     assign uo_out[n-1:0] = out_r;
                 
 endmodule
