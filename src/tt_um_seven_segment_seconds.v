@@ -1,6 +1,6 @@
 `default_nettype none
 
-module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
+module tt_um_seven_segment_seconds(
     input  wire [7:0] ui_in,    // Dedicated inputs - connected to the input switches
     output wire [7:0] uo_out,   // Dedicated outputs - connected to the 7 segment display
     input  wire [7:0] uio_in,   // IOs: Bidirectional Input path
@@ -29,6 +29,6 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     endgenerate
     
     assign conn[0] = ui_in[0];
-    assign uo_out[1] = conn[3];
+    assign uo_out[1] = conn[n];
                 
 endmodule
