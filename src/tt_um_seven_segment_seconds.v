@@ -17,6 +17,8 @@ module tt_um_seven_segment_seconds(
 
     genvar i;
 
+    wire launch_clk, capture_clk;
+    
     assign launch_clk  = u_in[1];
     assign capture_clk = u_in[2];
     
